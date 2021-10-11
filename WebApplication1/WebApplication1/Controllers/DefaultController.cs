@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models;
+using BLL;
 
 namespace WebApplication1.Controllers
 {
@@ -61,6 +62,15 @@ namespace WebApplication1.Controllers
                 /* -- 获取Users表数据 -- */
                 ViewBag.UName = fx.Users.ToList();
             }
+
+            return View();
+        }
+
+        /* -- 三层+AJAX异步完成增加、删除、查询功能 -- */
+        public ActionResult Index3() 
+        {
+            /* -- 查询Users表数据，用于显示 -- */
+            ViewBag.ALL = Index3BLL.UsersSelectALL();
 
             return View();
         }
