@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>复习1.2 判断用户名是否存在【非三层AJAX版】</title>
+
+    <!-- JQuery文件引用 -->
+    <script src="~/JavaScript/jquery-3.4.1.js"></script>
+    <script src="~/layer/layer.js"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        /* -- 标题框(#BT) -- */
+        #BT {
+            width: 100%;
+            height: 200px;
+            line-height: 200px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid red;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* -- 输入判断框(#SR) -- */
+        #SR {
+            width: 100%;
+            height: 200px;
+            line-height: 200px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid red;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* -- 输入判断框(#XS) -- */
+        #XS {
+            width: 100%;
+            height: 200px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid red;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //--【验证用户名是否存在，实现 AJAX】--
+            $("#YZ").click(function () {
+                var shuru = $("#UName").val();
+                $.get("../../AJAX/UNameYZ.ashx", { UName: shuru }, function (zhi) {
+                    layer.msg(zhi);
+                })
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- 标题框(#BT) -->
+    <div id="BT">
+        复习1.2 判断用户名是否存在【非三层AJAX版】
+    </div>
+    <!-- 输入判断框(#SR) -->
+    <div id="SR">
+        请输入用户名:<input type="text" value="" id="UName" name="UName" /><input type="button" value="验证" id="YZ" />
+    </div>
+    <!-- 显示库中已有的用户名(#XS) -->
+    <div id="XS">
+        <div>已存在用户名</div>
+        @foreach (Models.Users item in ViewBag.UName)
+        {
+            <div>@item.UName</div>
+        }
+    </div>
+</body>
+</html>

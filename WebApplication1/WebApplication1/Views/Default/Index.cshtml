@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>复习1.1 判断用户名是否存在【非三层非AJAX版】</title>
+
+    <!-- JQuery文件引用 -->
+    <script src="~/JavaScript/jquery-3.4.1.js"></script>
+    <script src="~/layer/layer.js"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        /* -- 标题框(#BT) -- */
+        #BT {
+            width: 100%;
+            height: 200px;
+            line-height: 200px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid red;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* -- 输入判断框(#SR) -- */
+        #SR {
+            width: 100%;
+            height: 200px;
+            line-height: 200px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid black;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* -- 输入判断框(#XS) -- */
+        #XS {
+            width: 100%;
+            height: 200px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid black;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        })
+    </script>
+
+</head>
+<body>
+    @if (ViewBag.TC == "kong")
+    {
+        <script type="text/javascript">
+            layer.msg("您还没有输入用户名!");
+        </script>
+    }
+    else if (ViewBag.TC == "zhi")
+    {
+        <script type="text/javascript">
+            layer.msg("您输入了！@ViewBag.name 已存在该用户名！");
+        </script>
+    }
+    else if (ViewBag.TC == "kong2")
+    {
+        <script type="text/javascript">
+            layer.msg("您输入了！@ViewBag.name 该用户名可用！");
+        </script>
+    }
+
+    <!-- 标题框(#BT) -->
+    <div id="BT">
+        复习1.1 判断用户名是否存在【非三层非AJAX版】
+    </div>
+    <!-- 输入判断框(#SR) -->
+    <form method="post" action="~/Default/Index">
+        <div id="SR">
+            请输入用户名:<input type="text" value="" id="UName" name="UName" /><input type="submit" value="验证" />
+        </div>
+    </form>
+    <!-- 显示库中已有的用户名(#XS) -->
+    <div id="XS">
+        <div>已存在用户名</div>
+        @foreach (Models.Users item in ViewBag.UName)
+        {
+            <div>@item.UName</div>
+        }
+    </div>
+</body>
+</html>
