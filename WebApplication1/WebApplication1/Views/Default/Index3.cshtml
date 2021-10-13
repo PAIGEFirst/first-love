@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Models.IDandUName>
+
 @{
     Layout = null;
 }
@@ -51,7 +52,7 @@
             height: 630px;
             border-top: 1px solid transparent;
             border-bottom: 1px solid transparent;
-            margin-top:22px;
+            margin-top: 22px;
         }
 
             /* -- 中部1(#Center) -- */
@@ -102,7 +103,7 @@
                 height: 630px;
                 border: 1px solid transparent;
                 margin-left: 22px;
-                box-shadow:5px 5px 5px 5px #808080; 
+                box-shadow: 5px 5px 5px 5px #808080;
             }
 
                 #CenterALL #Center2 .yhm-txt, #CenterALL #Center2 .mm-txt, #CenterALL #Center2 .zc-but {
@@ -112,6 +113,21 @@
                     margin-top: 88px;
                     margin-left: 200px;
                     text-align: center;
+                }
+
+            /*-- 中部3(#Center3) --*/
+            #CenterALL #Center3 {
+                float: left;
+                width: 600px;
+                height: 630px;
+                border: 1px solid red;
+                margin-left: 22px;
+                text-align: center;
+            }
+
+                #CenterALL #Center3 ul li {
+                    text-align: center;
+                    margin-top: 120px;
                 }
     </style>
 
@@ -137,12 +153,40 @@
                     if (zhi == "注册成功！" || zhi == "注册失败！") {
                         $("#yhm").val("");
                         $("#mm").val("");
-                        layer.msg(zhi);
+                        layer.msg(zhi + "2秒后将自动刷新界面！");
+                        //-- 注册成功/注册失败 后2s自动刷新页面 --
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
                     } else {
                         layer.msg(zhi);
                     }
                 })
             })
+
+            /* -- AJAX实现删除功能 -- */
+            $("#SC").click(function () {
+                var ID = $("#IDandUName").val();
+                layer.confirm('您确定要删除当前选择的用户 ' + ID + ' 吗？', { btn: ['确定', '再想想'] },
+                    function () {
+                        $.get("../../AJAX/UsersDelete.ashx", { ID: ID }, function (zhi) {
+                            if (zhi == "删除成功！" || zhi == "删除失败！") {
+                                layer.msg(zhi + "2秒后将自动刷新界面！");
+                                //-- 删除成功/注册失败 后2s自动刷新页面 --
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 2000);
+                            } else {
+                                layer.msg(zhi);
+                            }
+                        })
+                    },
+                    function () {
+
+                    });
+
+            });
+
 
         })
     </script>
@@ -186,9 +230,16 @@
             </div>
             <!-- 中部2(#Center2) -->
             <div id="Center2">
-                <div class="yhm-txt">用户名：<input type="text"  id="yhm" name="yhm" class="form-control" value="" /></div>
-                <div class="mm-txt">密  码：<input type="password"  id="mm" name="mm" class="form-control" value="" /></div>
+                <div class="yhm-txt">用户名：<input type="text" id="yhm" name="yhm" class="form-control" value="" /></div>
+                <div class="mm-txt">密  码：<input type="password" id="mm" name="mm" class="form-control" value="" /></div>
                 <div class="zc-but"><input type="button" value="验证并注册" id="ZC" class="btn btn-warning" /></div>
+            </div>
+            <!-- 中部3(#Center3) -->
+            <div id="Center3">
+                <ul>
+                    <li>选项需要删除的用户：@Html.DropDownList("IDandUName", ViewBag.SelectDD as IEnumerable<SelectListItem>)</li>
+                    <li><input type="button" class="btn btn-danger" value="删除" id="SC" name="SC" /></li>
+                </ul>
             </div>
         </div>
 

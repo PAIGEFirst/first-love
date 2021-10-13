@@ -119,6 +119,9 @@
     <Compile Include="AJAX\UNameYZ.ashx.cs">
       <DependentUpon>UNameYZ.ashx</DependentUpon>
     </Compile>
+    <Compile Include="AJAX\UsersDelete.ashx.cs">
+      <DependentUpon>UsersDelete.ashx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="ExtensionMethods.cs" />
@@ -131,6 +134,7 @@
     <Content Include="Views\web.config" />
     <Content Include="AJAX\UNameYZ.ashx" />
     <Content Include="AJAX\ReigstUsers.ashx" />
+    <Content Include="AJAX\UsersDelete.ashx" />
     <None Include="packages.config" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\Index2.cshtml" />
@@ -144,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

@@ -12,3 +12,17 @@ D:\桌面\复习代码MVC为基础\10.11(2)\WebApplication1\DAL\obj\Debug\DAL.cs
 D:\桌面\复习代码MVC为基础\10.11(2)\WebApplication1\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\桌面\复习代码MVC为基础\10.11(2)\WebApplication1\DAL\obj\Debug\DAL.dll
 D:\桌面\复习代码MVC为基础\10.11(2)\WebApplication1\DAL\obj\Debug\DAL.pdb
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\DAL.dll.config
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\DAL.dll
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\DAL.pdb
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\EntityFramework.dll
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\Models.dll
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\Models.pdb
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\Models.dll.config
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\EntityFramework.xml
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\obj\Debug\DAL.dll
+D:\桌面\复习代码MVC为基础\10.13\WebApplication1\DAL\obj\Debug\DAL.pdb

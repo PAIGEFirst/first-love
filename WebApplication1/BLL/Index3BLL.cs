@@ -40,6 +40,25 @@ namespace BLL
             return Index3DAL.InsertUsersALL(UName: UName, UPawd: UPawd) > 0;
         }
 
+        /// <summary>
+        /// 添加Users表(用户表)数据，用于下拉数据显示 -- 逻辑(List) 
+        /// </summary>
+        /// <returns></returns>
+        public static List<IDandUName> UsersSelectIDandUName() 
+        {
+            return Index3DAL.SelectUsersIDandUName();
+        }
+
+        /// <summary>
+        /// 删除Users表(用户表)数据，用于删除用户信息功能 -- 逻辑(逻辑)
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static bool UsersDeleteWhereID(int ID) 
+        {
+            return Index3DAL.DeleteUsersWhereID(ID: ID) > 0;
+        }
+
 
 
     }

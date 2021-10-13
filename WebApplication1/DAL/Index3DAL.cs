@@ -50,6 +50,32 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// 添加Users表(用户表)数据，用于下拉数据显示 -- 方法(List) 
+        /// </summary>
+        /// <returns></returns>
+        public static List<IDandUName> SelectUsersIDandUName() 
+        {
+            using (FXEntities fx=new FXEntities()) 
+            {
+                string sql = string.Format("SELECT ID,UName FROM Users");
+                return fx.Database.SqlQuery<IDandUName>(sql).ToList();
+            }
+        }
+
+        /// <summary>
+        /// 删除Users表(用户表)数据，用于删除用户信息功能 -- 方法(Int)
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public static int DeleteUsersWhereID(int ID) 
+        {
+            using (FXEntities fx = new FXEntities()) 
+            {
+                string sql = string.Format("DELETE FROM Users WHERE ID='{0}'",ID);
+                return fx.Database.ExecuteSqlCommand(sql);
+            }
+        }
 
 
     }

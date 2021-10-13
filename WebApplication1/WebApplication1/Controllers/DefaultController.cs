@@ -72,6 +72,9 @@ namespace WebApplication1.Controllers
             /* -- 查询Users表数据，用于显示 -- */
             ViewBag.ALL = Index3BLL.UsersSelectALL();
 
+            /* -- 获取下拉值，ID和UName -- */
+            ViewBag.SelectDD = new SelectList(Index3BLL.UsersSelectIDandUName(), "ID", "UName");
+
             return View();
         }
 
